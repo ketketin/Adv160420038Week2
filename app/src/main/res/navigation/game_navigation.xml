@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/game_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/itemHome"
         android:name="com.katheryn.adv160420038week2.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
@@ -15,6 +15,9 @@
             app:destination="@id/gameFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/actionOptionFragment"
+            app:destination="@id/optionFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -33,6 +36,10 @@
         <argument
             android:name="score"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_gameFragment_to_mainFragment3"
+            app:destination="@id/itemHome"
+            app:popUpTo="@id/itemHome" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -41,9 +48,24 @@
         tools:layout="@layout/fragment_result" >
         <action
             android:id="@+id/actionMainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/itemHome" />
         <argument
             android:name="score"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/itemHistory"
+        android:name="com.katheryn.adv160420038week2.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.katheryn.adv160420038week2.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/optionFragment"
+        android:name="com.katheryn.adv160420038week2.OptionFragment"
+        android:label="fragment_option"
+        tools:layout="@layout/fragment_option" />
 </navigation>
